@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin\\Release",
+    "\\Controllers",
+    "\\Data",
+    "\\Migrations",
+    "\\Models",
+    "\\obj",
+    "\\Properties"
+  ],
+  "SelectedNode": "\\Controllers\\AlumnosController.cs",
+  "PreviewInSolutionExplorer": false
+}

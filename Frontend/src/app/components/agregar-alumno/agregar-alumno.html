@@ -1,0 +1,39 @@
+<div class="card shadow border-0">
+  <div class="card-header" [ngClass]="editando ? 'bg-warning text-dark' : 'bg-primary text-white'">
+    <h5 class="mb-0">
+      <i class="bi" [ngClass]="editando ? 'bi-pencil-square' : 'bi-person-plus-fill'"></i>
+      {{ editando ? 'Modificar Alumno' : 'Registrar Alumno' }}
+    </h5>
+  </div>
+  
+  <div class="card-body">
+    <form (ngSubmit)="guardar()">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="nuevoAlumno.nombre" name="nombre" placeholder="Ingrese nombre" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Apellido</label>
+        <input type="text" class="form-control" [(ngModel)]="nuevoAlumno.apellido" name="apellido" placeholder="Ingrese apellido" required>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mb-3">
+          <label class="form-label fw-bold">Grado</label>
+          <input type="text" class="form-control" [(ngModel)]="nuevoAlumno.grado" name="grado" placeholder="Ej: 5to Secundaria" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-bold">Edad</label>
+          <input type="number" class="form-control" [(ngModel)]="nuevoAlumno.edad" name="edad" required>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn w-100 fw-bold shadow-sm" [ngClass]="editando ? 'btn-warning' : 'btn-success'">
+        {{ editando ? 'Guardar Cambios' : 'Registrar Alumno' }}
+      </button>
+      
+      <button *ngIf="editando" type="button" (click)="limpiarFormulario()" class="btn btn-light w-100 mt-2">
+        Cancelar
+      </button>
+    </form>
+  </div>
+</div>

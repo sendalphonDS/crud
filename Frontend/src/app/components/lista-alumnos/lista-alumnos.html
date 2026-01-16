@@ -1,0 +1,40 @@
+<div class="card shadow-lg border-0">
+  <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-3">
+    <h5 class="mb-0 fw-bold">Alumnos Registrados</h5>
+    <span class="badge bg-primary">{{ alumnos.length }} total</span>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th class="ps-4">Nombre</th>
+          <th>Apellido</th>
+          <th>Grado</th>
+          <th class="text-center">Edad</th>
+          <th class="text-end pe-5">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of alumnos">
+          <td class="ps-4"><strong>{{ a.nombre }}</strong></td>
+          <td>{{ a.apellido }}</td>
+          <td><span class="badge rounded-pill bg-info text-dark">{{ a.grado }}</span></td>
+          <td class="text-center">{{ a.edad }}</td>
+          <td class="pe-4">
+            <div class="d-flex justify-content-end gap-2">
+              <button (click)="editar(a)" class="btn btn-sm btn-outline-warning shadow-sm">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button (click)="eliminar(a.id)" class="btn btn-sm btn-outline-danger shadow-sm">
+                <i class="bi bi-trash3"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="alumnos.length === 0">
+          <td colspan="5" class="text-center py-4">No hay datos disponibles.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
